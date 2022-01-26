@@ -1,0 +1,11 @@
+Main page
+- The main page should have a section for projects
+- There is a default project when the user opens the app and where todos are placed
+- Projects can be created and where a todo is stored can be chosen
+- When a project is clicked, todos in a project can be viewed
+-- A directory at the top like 'home > project1 > todo1'
+- Todos can be expanded to see or edit details
+- Todos can be deleted
+
+New item
+- When clicked, a child is appended to main view that with form fields for input
