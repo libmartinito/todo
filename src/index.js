@@ -1,9 +1,16 @@
 import './styles.css';
-import { convertToCamelCase, convertToTitleCase } from './logic.js';
+import { make, addClass, append, select, hideProjTodos, displayProjects, showTodoForm, hideTodoForm } from './dom.js';
+import { convertToCamelCase, convertToTitleCase, updateData } from './logic.js';
 
-let add = document.querySelector('.add-todo');
-add.addEventListener('click', () => {
-    convertToCamelCase('All tasks');
+let addBtn = select('.add-btn');
+addBtn.addEventListener('click', () => {
+    hideProjTodos();
+    showTodoForm();
 });
-console.log(convertToCamelCase("All tasks"));
-console.log(convertToTitleCase('allTasks'));
+
+let submitBtn = select('.todo-submit');
+submitBtn.addEventListener('click', () => {
+    updateData();
+    hideTodoForm();
+    displayProjects();
+});
