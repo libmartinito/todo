@@ -9,33 +9,67 @@
 <body>
   <div class='container'>
     <div class='header'>
-      <div class='logo'>A todo list</div>
+      <div class='logo'>A to-do list</div>
       <div class='btn-container'>
         <button class='add-btn'>Add</button>
       </div>
     </div>
     <div class='body'>
       <div class='projects'>
-        <div class='proj-header'>Projects</div>
+        <div class='proj-header' data-index = 0>Projects</div>
         <div class='proj-titles'></div>
       </div>
       <div class='view'>
-        <div class='navigation'>home > all projects</div>
         <div class='proj-todos'></div>
+        <div class='selected-todo'>
+          <div class='selected-todo-title'></div>
+          <div class='selected-todo-description'></div>
+          <div class='selected-todo-duedate'></div>
+          <div class='selected-todo-priority'></div>
+          <div class='selected-todo-btns'>
+            <button class='edit'>Edit</button>
+            <button class='remove'>Remove</button>
+          </div>
+        </div>
+        <div class='edit-todo'>
+          <div class='edit-title'>
+            <input type='text' id='edit-title' placeholder='Title'>
+          </div>
+          <div class='edit-desc'>
+            <textarea id = 'edit-desc' placeholder='Description'></textarea>
+          </div>
+          <div class='edit-duedate'>
+            <label for='edit-duedate'>Due date:</label>
+            <input type='date' id='edit-duedate' value='2022-01-26'>
+          </div>
+          <div class='edit-priority'>
+            <label for='edit-priority'>Priority:</label>
+            <select id='edit-priority'>
+              <option>Critical</option>
+              <option>Important</option>
+              <option>Normal</option>
+              <option>Low</option>
+            </select>
+          </div>
+          <div class='edit-project'>
+            <input type='text' id='edit-project' placeholder='Project Name'>
+          </div>
+          <button class='save'>Save</button>          
+        </div>
         <div class='add-todo'>
           <div class='todo-title'>
             <input type='text' id='todo-title' placeholder='Title'>
           </div>
           <div class='todo-desc'>
-            <textarea placeholder='Description'></textarea>
+            <textarea id='todo-desc' placeholder='Description'></textarea>
           </div>
           <div class='todo-duedate'>
-            <label for='duedate'>Due date:</label>
-            <input type='date' id='duedate' value='2022-01-26'>
+            <label for='todo-duedate'>Due date:</label>
+            <input type='date' id='todo-duedate' value='2022-01-26'>
           </div>
           <div class='todo-priority'>
-            <label for='priority'>Priority:</label>
-            <select id='priority'>
+            <label for='todo-priority'>Priority:</label>
+            <select id='todo-priority'>
               <option>Critical</option>
               <option>Important</option>
               <option>Normal</option>

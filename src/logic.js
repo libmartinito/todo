@@ -50,9 +50,9 @@ const convertToTitleCase = (str) => {
 
 const createTodo = () => {
   let title = select('#todo-title').value;
-  let description = select('textarea').value;
-  let dueDate = select('#duedate').value;
-  let priority = select('#priority').value;
+  let description = select('#todo-desc').value;
+  let dueDate = select('#todo-duedate').value;
+  let priority = select('#todo-priority').value;
 
   return new toDo(title, description, dueDate, priority);
 };
@@ -64,7 +64,13 @@ let projectList = {};
 // A function that adds a todo to the array value of a project key in a project list object
 
 const updateData = () => {
-  let project = convertToCamelCase(select('#todo-project').value);
+  let project = select('#todo-project').value;
+
+  if (project == '') {
+    project = 'allTasks';
+  } else {
+    project = convertToCamelCase(project);
+  };
 
   let newTodo = createTodo();
 
@@ -93,6 +99,35 @@ const getProjectTodos = (project) => {
   return projectList[project];
 };
 
+// A function for accessing a specific todo of a given project
 
-export{convertToCamelCase, updateData, getProjectTitles, getProjectTodos}
+const getTodo = (project, index) => {
+  return projectList[project][index];
+};
+
+// A function for updating the todo edited
+
+const updateEditedTodo = () => {
+  let selectedTodo = select('.selected-todo');
+  let project = selectedTodo.dataset.project;
+  let index = selectedTodo.dataset.index;
+
+  console.log(project);
+  console.log(index);
+
+  let title = select('#edit-title').value;
+  let description = select('#edit-desc').value;
+  let duedate = select('#edit-duedate').value;
+  let priority = select('#edit-priority').value;
+
+  console.log(title)
+  console.log(description)
+  console.log(duedate)
+  console.log(priority)
+  
+  projectList[project][index] = new toDo(title, description, duedate, priority);
+};
+
+
+export{convertToCamelCase, updateEditedTodo, getTodo, updateData, getProjectTitles, getProjectTodos};
 
