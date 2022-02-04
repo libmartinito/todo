@@ -128,6 +128,15 @@ const updateEditedTodo = () => {
   projectList[project][index] = new toDo(title, description, duedate, priority);
 };
 
+// A function for updating the selected todo
 
-export{convertToCamelCase, updateEditedTodo, getTodo, updateData, getProjectTitles, getProjectTodos};
+const removeTodo = () => {
+  let selectedTodo = select('.selected-todo');
+  let project = selectedTodo.dataset.project;
+  let index = selectedTodo.dataset.index;
+
+  projectList[project].splice(index, 1);
+};
+
+export{convertToCamelCase, removeTodo, updateEditedTodo, getTodo, updateData, getProjectTitles, getProjectTodos};
 

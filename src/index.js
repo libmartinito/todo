@@ -1,6 +1,6 @@
 import './styles.css';
 import { make, addClass, append, hideEditTodoForm, showEditTodoForm, clearTodoForm, updateTodoForm, select, hideSelectedTodo, hideProjTodos, displayProjects, showTodoForm, hideTodoForm } from './dom.js';
-import { convertToCamelCase, convertToTitleCase, getTodo, updateData, updateEditedTodo } from './logic.js';
+import { convertToCamelCase, convertToTitleCase, removeTodo, updateData, updateEditedTodo } from './logic.js';
 
 let addBtn = select('.add-btn');
 addBtn.addEventListener('click', () => {
@@ -30,5 +30,12 @@ saveBtn.addEventListener('click', () => {
     hideEditTodoForm();
     updateEditedTodo();
     displayProjects();
-    console.log(getTodo('allTasks', 1));
+});
+
+let removeBtn = select('.remove');
+removeBtn.addEventListener('click', () => {
+    hideEditTodoForm();
+    hideSelectedTodo();
+    removeTodo();
+    displayProjects();
 });
